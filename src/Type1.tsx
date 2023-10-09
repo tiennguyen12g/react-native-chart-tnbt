@@ -97,15 +97,6 @@ export default function Type1({
           alignItems: 'center',
           top: -logoSize / 2,
         }}>
-        {/* <View style={{ position: "absolute", top:0}}>
-          <RNText
-            style={{
-              fontSize: 30,
-              fontWeight: '500',
-            }}>
-            Asset Allocation
-          </RNText>
-        </View> */}
         <View
           style={{
             position: 'relative',
@@ -119,9 +110,9 @@ export default function Type1({
             if (lodoData !== undefined && Object.keys(lodoData).length > 0) {
               const url = lodoData[item.title];
               return (
-                <>
+                <React.Fragment key={i}>
                   {item.title === currentHighlight && url ? (
-                    <React.Fragment key={i}>
+                    <React.Fragment>
                       <RNImage
                         source={url}
                         style={{width: logoSize, height: logoSize}}
@@ -133,7 +124,7 @@ export default function Type1({
                   ) : (
                     ''
                   )}
-                </>
+                </React.Fragment>
               );
             } else {
               return (

@@ -17,6 +17,12 @@ You can clone this repo to test package.
    ```bash
    import PieChart from "piechart-animation-tnbt"
    ```
+   if typescript gives the error, you can try to create file name piechart-animation-tnbt.d.ts
+   ```bash
+   // file piechart-animation-tnbt.d.ts
+   declare module "piechart-animation-tnbt"
+   ```
+
 ## How to use
    ```bash
          <PieChart
