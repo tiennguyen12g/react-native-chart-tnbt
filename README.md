@@ -47,7 +47,7 @@ You can clone this repo to test package.
 #### typeNo = 2
    ![Type2 Image](https://github.com/tiennguyen12g/piechart-animation-tnbt/blob/main/src/assets/demoImage/type2.png)
 #### annotations
-   ![Annotaions Image](https://github.com/tiennguyen12g/piechart-animation-tnbt/blob/main/src/assets/demoImage/annotaions.png)
+   ![Annotaions Image](https://github.com/tiennguyen12g/piechart-animation-tnbt/blob/main/src/assets/demoImage/annotations.png)
 
 ### Parameter
    ```bash
@@ -91,24 +91,7 @@ You can clone this repo to test package.
      value: 11100,
    }]
    ```
-   ```bash
-   interface DataInput {
-      title: string;
-      value: number;
-   }
-
-   Example: 
-   const dataInput = [
-   {
-     title: 'Gold',
-     value: 23900.52,
-   },
-   {
-     title: 'USD',
-     value: 11100,
-   }]
-   ```
-   ** Declare logo like this component
+   ## Declare logo like this component
    ```bash
    interface CryptoLogos {
     [key: string]: {uri: string};
@@ -122,12 +105,29 @@ You can clone this repo to test package.
      };
 
    export default Crypto_Logo_PNG;
+
+   ** Note: The key for the logo have to the same with the title.
+   Example: 
+   const dataInput = [{
+      title: 'BTC',
+      value: 23900.52,
+   }];
+   const Crypto_Logo_PNG: CryptoLogos = {
+      "BTC": BTC,
+   };
+   The title "BTC" have to equal the key of object logo "BTC" in this case.
+
    ```
    ```bash
    const colorCustomList = ["green","red","black"], if you not pass this data, the code will auto create random color.
    ```
    > "animations" uses to add some decorates such as: animation (spin follow clockwise or couter_clockwise)
    > "decorPie" uses to add some decorates which something like as: Text, circular arc when touch, add logo.
+   ## seperateSlice
+   ```bash
+      // this attribute will add the line which split circle to circular are clearly
+      seperateSlice: true or false
+   ```
 
 ## Congratulations! :tada:
 
