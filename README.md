@@ -6,7 +6,8 @@
 I hope to disscuss about any the problem with you. Thank you !!!
 
 ### This package is for Android
-
+## Test
+You can clone this repo to test package.
 
 ## Installation using npm
    ```bash
@@ -35,6 +36,13 @@ I hope to disscuss about any the problem with you. Thank you !!!
           }}
         />
    ```
+#### typeNo = 1
+   ![Type1 Image](https://github.com/tiennguyen12g/piechart-animation-tnbt/blob/main/src/assets/demoImage/type1.png)
+#### typeNo = 2
+   ![Type2 Image](https://github.com/tiennguyen12g/piechart-animation-tnbt/blob/main/src/assets/demoImage/type2.png)
+#### annotations
+   ![Annotaions Image](https://github.com/tiennguyen12g/piechart-animation-tnbt/blob/main/src/assets/demoImage/annotaions.png)
+
 ### Parameter
    ```bash
    interface PieChartProps {
@@ -94,8 +102,26 @@ I hope to disscuss about any the problem with you. Thank you !!!
      value: 11100,
    }]
    ```
-   ** "animations" uses to add some decorates such as: animation (spin follow clockwise or couter_clockwise)
-   ** "decorPie" uses to add some decorates which something like as: Text, circular arc when touch, add logo.
+   ** Declare logo like this component
+   ```bash
+   interface CryptoLogos {
+    [key: string]: {uri: string};
+   }
+   const BTC = require('./PNG/btc.png');
+   const ETH = require('./PNG/eth.png');
+  
+     const Crypto_Logo_PNG: CryptoLogos = {
+      "BTC": BTC,
+      "ETH": ETH,
+     };
+
+   export default Crypto_Logo_PNG;
+   ```
+   ```bash
+   const colorCustomList = ["green","red","black"], if you not pass this data, the code will auto create random color.
+   ```
+   > "animations" uses to add some decorates such as: animation (spin follow clockwise or couter_clockwise)
+   > "decorPie" uses to add some decorates which something like as: Text, circular arc when touch, add logo.
 
 ## Congratulations! :tada:
 

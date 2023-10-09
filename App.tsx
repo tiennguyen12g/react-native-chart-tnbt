@@ -40,8 +40,6 @@ function App(): JSX.Element {
             seperateSlice: true,
             opacityDecorCircular: 0.5,
             annotation: true,
-            // logoData: Crypto_Logo_PNG,
-            // logoSize: 35,
           }}
         />
           :
@@ -65,25 +63,6 @@ function App(): JSX.Element {
     </SafeAreaView>
   );
 }
-
-const styles = StyleSheet.create({
-  sectionContainer: {
-    marginTop: 32,
-    paddingHorizontal: 24,
-  },
-  sectionTitle: {
-    fontSize: 24,
-    fontWeight: '600',
-  },
-  sectionDescription: {
-    marginTop: 8,
-    fontSize: 18,
-    fontWeight: '400',
-  },
-  highlight: {
-    fontWeight: '700',
-  },
-});
 
 export default App;
 const data = [
