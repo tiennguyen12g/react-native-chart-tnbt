@@ -94,23 +94,8 @@ I hope to disscuss about any the problem with you. Thank you !!!
      value: 11100,
    }]
    ```
-| react-native-svg | react-native |
-| ---------------- | ------------ |
-| 3.2.0            | 0.29         |
-| 4.2.0            | 0.32         |
-| 4.3.0            | 0.33         |
-| 4.4.0            | 0.38         |
-| 4.5.0            | 0.40         |
-| 5.1.8            | 0.44         |
-| 5.2.0            | 0.45         |
-| 5.3.0            | 0.46         |
-| 5.4.1            | 0.47         |
-| 5.5.1            | >=0.50       |
-| >=6              | >=0.50       |
-| >=7              | >=0.57.4     |
-| >=8              | >=0.57.4     |
-| >=9              | >=0.57.4     |
-| >=12.3.0         | >=0.64.0     |
+   ** "animations" uses to add some decorates such as: animation (spin follow clockwise or couter_clockwise)
+   ** "decorPie" uses to add some decorates which something like as: Text, circular arc when touch, add logo.
 
 ## Congratulations! :tada:
 
