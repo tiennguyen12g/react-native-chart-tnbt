@@ -1,5 +1,5 @@
 {
-  "name": "piechart-animation-tnbt",
+  "name": "react-native-chart-tnbt",
   "version": "1.0.0",
   "private": false,
   "type": "module",
@@ -10,7 +10,7 @@
   },
   "repository": {
     "type": "git",
-    "url": "https://github.com/tiennguyen12g/piechart-animation-tnbt"
+    "url": "https://github.com/tiennguyen12g/react-native-chart-tnbt"
   },
   "scripts": {
     "android": "react-native run-android",

@@ -1,9 +1,10 @@
 
-# How to use piechart-animation-tnbt
+# How to use react-native-chart-tnbt
 # Getting Started
 
->**Note**: I am a newbie in React Native. Here is my frist package which I publish to npm. If it make you waste your time, please dont blame me. 
-I hope to disscuss about any the problem with you. Thank you !!!
+>**Note**: 
+I am a newbie in React Native. Here is my frist package which I publish to npm. 
+If it make you waste your time, please dont blame me. I hope to disscuss about any the problem with you. Thank you !!!
 
 ### This package is for Android
 ## Test
@@ -11,16 +12,17 @@ You can clone this repo to test package.
 
 ## Installation using npm
    ```bash
-   npm i piechart-animation-tnbt
+   npm i react-native-chart-tnbt
    ```
+# 1. PieChart
 ## Import to your component
    ```bash
-   import PieChart from "piechart-animation-tnbt"
+   import PieChart from "react-native-chart-tnbt"
    ```
-   if typescript gives the error, you can try to create file name piechart-animation-tnbt.d.ts
+   if typescript gives the error, you can try to create file name react-native-chart-tnbt.d.ts
    ```bash
-   // file piechart-animation-tnbt.d.ts
-   declare module "piechart-animation-tnbt"
+   // file react-native-chart-tnbt.d.ts
+   declare module "react-native-chart-tnbt"
    ```
 
 ## How to use
@@ -43,11 +45,11 @@ You can clone this repo to test package.
         />
    ```
 #### typeNo = 1
-   ![Type1 Image](https://github.com/tiennguyen12g/piechart-animation-tnbt/blob/main/src/assets/demoImage/type1.png)
+   ![Type1 Image](https://github.com/tiennguyen12g/react-native-chart-tnbt/blob/main/src/assets/demoImage/type1.png)
 #### typeNo = 2
-   ![Type2 Image](https://github.com/tiennguyen12g/piechart-animation-tnbt/blob/main/src/assets/demoImage/type2.png)
+   ![Type2 Image](https://github.com/tiennguyen12g/react-native-chart-tnbt/blob/main/src/assets/demoImage/type2.png)
 #### annotations
-   ![Annotaions Image](https://github.com/tiennguyen12g/piechart-animation-tnbt/blob/main/src/assets/demoImage/annotations.png)
+   ![Annotaions Image](https://github.com/tiennguyen12g/react-native-chart-tnbt/blob/main/src/assets/demoImage/annotations.png)
 
 ### Parameter
    ```bash
@@ -63,7 +65,7 @@ You can clone this repo to test package.
         sizeDecorCircular: number;
         strokeWidthDecorCircular: number;
         seperateSlice: boolean;
-        opacityDecorCircular: number;
+        opacityDecorCircular: number; // Value 0-1
         annotation?: boolean;
         logoData?: CryptoLogoPNG;
         logoSize?: number;
@@ -90,6 +92,21 @@ You can clone this repo to test package.
      title: 'USD',
      value: 11100,
    }]
+   ```
+   ## Circular Arc
+   When you touch to the slice, the circular arc will display with its animation.
+   ```bash
+      ** value should be greater or less than maic circle radius
+      sizeDecorCircular: number; 
+      ** thickness depend on you
+      strokeWidthDecorCircular: number;
+      ** Value 0-1
+      opacityDecorCircular: number; 
+   ```
+   ## seperateSlice
+   ```bash
+      // this attribute will add the line which split circle to circular are clearly
+      seperateSlice: true or false
    ```
    ## Declare logo like this component
    ```bash
@@ -118,17 +135,16 @@ You can clone this repo to test package.
    The title "BTC" have to equal the key of object logo "BTC" in this case.
 
    ```
+   ## Add your favorite colors
    ```bash
-   const colorCustomList = ["green","red","black"], if you not pass this data, the code will auto create random color.
+   const colorCustomList = ["green","red","black"]
+   If you not pass this data, the code will auto create random color.
    ```
-   > "animations" uses to add some decorates such as: animation (spin follow clockwise or couter_clockwise)
-   > "decorPie" uses to add some decorates which something like as: Text, circular arc when touch, add logo.
-   ## seperateSlice
-   ```bash
-      // this attribute will add the line which split circle to circular are clearly
-      seperateSlice: true or false
-   ```
-
+   ## animations
+   uses to add some decorates such as: animation (spin follow clockwise or couter_clockwise)
+   ## decorPie 
+   uses to add some decorates which something like as: Text, circular arc when touch, add logo.
+## I will try to build more type of chart.
 ## Congratulations! :tada:
 
 You've successfully run and modified this package. :partying_face:
