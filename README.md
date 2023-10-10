@@ -17,32 +17,12 @@ You can clone this repo to test package.
 # 1. PieChart
 ## Import to your component
    ```bash
-   import PieChart from "react-native-chart-tnbt"
+   import {PieChart} from "react-native-chart-tnbt"
    ```
    if typescript gives the error, you can try to create file name react-native-chart-tnbt.d.ts
    ```bash
    // file react-native-chart-tnbt.d.ts
    declare module "react-native-chart-tnbt"
-   ```
-
-## How to use
-   ```bash
-         <PieChart
-          typeNo={1}
-          data={dataBalance}
-          duration={2000}
-          mainPie={{size: size, strokeWidth: 15}}
-          animations={{
-            clockwiseDirection: 'clockwise', // counter_clockwise or clockwise
-          }}
-          decorPie={{
-            sizeDecorCircular: size - 100,
-            strokeWidthDecorCircular: 25,
-            seperateSlice: true,
-            opacityDecorCircular: 0.5,
-            annotation: true,
-          }}
-        />
    ```
 #### typeNo = 1
    ![Type1 Image](https://github.com/tiennguyen12g/react-native-chart-tnbt/blob/main/src/assets/demoImage/type1.png)
@@ -51,7 +31,7 @@ You can clone this repo to test package.
 #### annotations
    ![Annotaions Image](https://github.com/tiennguyen12g/react-native-chart-tnbt/blob/main/src/assets/demoImage/annotations.png)
 
-### Parameter
+## Available props
    ```bash
    interface PieChartProps {
       typeNo?: number; // default: 1 or option 2
@@ -76,37 +56,67 @@ You can clone this repo to test package.
       };
    }
    ```
+## Table list props
+| Name                        | Type              | Default             | Description                       |
+| `typyNo`                    | `number`          |      `1`            | Type of piechart                  |  
+| `data`                      | `DataInput[]`     |      `no`           | Data pass to pie chart            |  
+| `duration`                  | `number`          |      `2000`         | Time for animation run            |  
+| `mainPie`                   |                   |                     | Parameter to create circle chart  |  
+| `size`                      | `number`          |      `280`          | The size of view box.             | 
+| `strokeWidth`               | `number`          |      `15`           | The size of stroke circle         | 
+| `decorPie`                  |                   |                     | Parameter to create second circle for decor main circle|  
+| `sizeDecorCircular`         | `number`          |      `150`          | The size of the second circle     | 
+| `strokeWidthDecorCircular`  | `number`          |      `25`           | The size of the second stroke circle| 
+| `seperateSlice`             | `boolean`         |      `true`         | Creates clear lines to cut graph pieces| 
+| `opacityDecorCircular`      | `number`          |      `0.5`          | Add opacity for the circle decor| 
+| `annotation`                | `boolean`         |      `false`        | Add the note for each fund        | 
+| `logoSize`                  | `number`          |      `35`           | The size for logo insert in annotation or each slices| 
+| `colorCustomList`           | `string[]`        |      `see below`    | The size for logo insert in annotation or each slices  | 
+| `clockwiseDirection`        | `string`          | `clockwise or counter_clockwise`| Direction of rotation of the circle | 
+
+
    ```bash
    interface DataInput {
       title: string;
       value: number;
    }
 
-   Example: 
-   const dataInput = [
-   {
-     title: 'Gold',
-     value: 23900.52,
-   },
-   {
-     title: 'USD',
-     value: 11100,
-   }]
    ```
-   ## Circular Arc
-   When you touch to the slice, the circular arc will display with its animation.
+   ## How to use
    ```bash
-      ** value should be greater or less than maic circle radius
-      sizeDecorCircular: number; 
-      ** thickness depend on you
-      strokeWidthDecorCircular: number;
-      ** Value 0-1
-      opacityDecorCircular: number; 
-   ```
-   ## seperateSlice
-   ```bash
-      // this attribute will add the line which split circle to circular are clearly
-      seperateSlice: true or false
+      Example: 
+         const dataInput = [
+         {
+           title: 'Gold',
+           value: 23900.52,
+         },
+         {
+           title: 'USD',
+           value: 11100,
+         }]
+         <YourComponent>
+            <PieChart
+             typeNo={1}
+             data={dataInput}
+             duration={2000}
+             mainPie={
+               {
+                  size: 280, 
+                  strokeWidth: 15
+               }
+            }
+             animations={{
+               clockwiseDirection: 'clockwise', // counter_clockwise or clockwise
+             }}
+             decorPie={{
+               sizeDecorCircular: 150,
+               strokeWidthDecorCircular: 25,
+               seperateSlice: true,
+               opacityDecorCircular: 0.5,
+               annotation: true,
+             }}
+           />
+         </YourComponent>
    ```
    ## Declare logo like this component
    ```bash
@@ -123,7 +133,7 @@ You can clone this repo to test package.
 
    export default Crypto_Logo_PNG;
 
-   ** Note: The key for the logo have to the same with the title.
+   ** Note: The key for the logo must to the same with the title.
    Example: 
    const dataInput = [{
       title: 'BTC',
@@ -137,13 +147,19 @@ You can clone this repo to test package.
    ```
    ## Add your favorite colors
    ```bash
-   const colorCustomList = ["green","red","black"]
-   If you not pass this data, the code will auto create random color.
+   // default color
+   const colorCustomList = [
+      'rgb(244,62,61)',
+      'rgb(254,165,61)',
+      'rgb(128,22,80)',
+      'rgb(131,242,58)',
+      'rgb(59,95,255)',
+      'rgb(252,60,222)',
+      'rgb(72,220,236)',
+   ];
+   If you not pass this data or your data is large, the code will auto create random color.
    ```
-   ## animations
-   uses to add some decorates such as: animation (spin follow clockwise or couter_clockwise)
-   ## decorPie 
-   uses to add some decorates which something like as: Text, circular arc when touch, add logo.
+
 ## I will try to build more type of chart.
 ## Congratulations! :tada:
 
