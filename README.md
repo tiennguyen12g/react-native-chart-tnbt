@@ -9,6 +9,13 @@ If it make you waste your time, please dont blame me. I hope to disscuss about a
 ### This package is for Android
 ## Test
 You can clone this repo to test package.
+   ```bash
+   https://github.com/tiennguyen12g/react-native-chart-tnbt.git
+   ```
+   ```bash
+   npx react-native start
+   ```
+   In the App.tsx, I have some data for test, you can use it if need.
 
 ## Installation using npm
    ```bash
@@ -75,7 +82,6 @@ You can clone this repo to test package.
 | colorCustomList       | string[]   | see below| The size for inserting a logo in annotations or each slice                                      |
 | clockwiseDirection    | string     | clockwise or counter_clockwise     | Direction of rotation of the circle |
 
-Note: Ensure there's an empty line before and after the table in your Markdown for proper rendering.
 
    ```bash
    interface DataInput {
