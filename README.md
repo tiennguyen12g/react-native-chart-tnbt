@@ -57,22 +57,38 @@ You can clone this repo to test package.
    }
    ```
 ## Table list props
-| Name                        | Type              | Default             | Description                       |
-| `typyNo`                    | `number`          |      `1`            | Type of piechart                  |  
-| `data`                      | `DataInput[]`     |      `no`           | Data pass to pie chart            |  
-| `duration`                  | `number`          |      `2000`         | Time for animation run            |  
-| `mainPie`                   |                   |                     | Parameter to create circle chart  |  
-| `size`                      | `number`          |      `280`          | The size of view box.             | 
-| `strokeWidth`               | `number`          |      `15`           | The size of stroke circle         | 
-| `decorPie`                  |                   |                     | Parameter to create second circle for decor main circle|  
-| `sizeDecorCircular`         | `number`          |      `150`          | The size of the second circle     | 
-| `strokeWidthDecorCircular`  | `number`          |      `25`           | The size of the second stroke circle| 
-| `seperateSlice`             | `boolean`         |      `true`         | Creates clear lines to cut graph pieces| 
-| `opacityDecorCircular`      | `number`          |      `0.5`          | Add opacity for the circle decor| 
-| `annotation`                | `boolean`         |      `false`        | Add the note for each fund        | 
-| `logoSize`                  | `number`          |      `35`           | The size for logo insert in annotation or each slices| 
-| `colorCustomList`           | `string[]`        |      `see below`    | The size for logo insert in annotation or each slices  | 
-| `clockwiseDirection`        | `string`          | `clockwise or counter_clockwise`| Direction of rotation of the circle | 
+| Name                        | Type              | Default             | Description                       
+                                                                                                                                           |
+| ----------------------------| ------------------| --------------------| ------------------------------------------------------------------------------------------------------------------------------------------ |
+| `typyNo`                    | `number`          |      `1`            | Type of piechart                  
+                                                                                                            |  
+| `data`                      | `DataInput[]`     |      `no`           | Data pass to pie chart            
+                                                                                                            | 
+| `duration`                  | `number`          |      `2000`         | Time for animation run            
+                                                                                                            |  
+| `mainPie`                   |                   |                     | Parameter to create circle chart  
+                                                                                                            |  
+| `size`                      | `number`          |      `280`          | The size of view box.             
+                                                                                                            | 
+| `strokeWidth`               | `number`          |      `15`           | The size of stroke circle         
+                                                                                                            | 
+| `decorPie`                  |                   |                     | Parameter to create second circle 
+for decor main circle                                                                                       |
+| `sizeDecorCircular`         | `number`          |      `150`          | The size of the second circle                                                                                                                 | 
+| `strokeWidthDecorCircular`  | `number`          |      `25`           | The size of the second stroke circle
+                                                                                                            | 
+| `seperateSlice`             | `boolean`         |      `true`         | Creates clear lines to cut graph pieces
+                                                                                                            |
+| `opacityDecorCircular`      | `number`          |      `0.5`          | Add opacity for the circle decor
+                                                                                                            |
+| `annotation`                | `boolean`         |      `false`        | Add the note for each fund        
+                                                                                                            | 
+| `logoSize`                  | `number`          |      `35`           | The size for logo insert in annotation or each slices
+                                                                                                            | 
+| `colorCustomList`           | `string[]`        |      `see below`    | The size for logo insert in annotation or each slices
+                                                                                                            | 
+| `clockwiseDirection`        | `string`          | `clockwise or counter_clockwise`| Direction of rotation of the circle 
+                                                                                                            | 
 
 
    ```bash
