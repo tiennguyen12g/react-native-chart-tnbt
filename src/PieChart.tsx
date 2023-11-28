@@ -1,4 +1,3 @@
-import { View, StyleSheet, Dimensions, Text,TouchableOpacity, TouchableWithoutFeedback,TouchableHighlight } from 'react-native';
 import Type1 from "./Type1"
 import Type2 from "./Type2";
 import ConvertData from './ConvertData';
@@ -43,8 +42,8 @@ export default function PieChart({   typeNo = 1,
   }
 
   return (
-    <View>
+    <>
       {chartComponent}
-    </View>
+    </>
   );
 }

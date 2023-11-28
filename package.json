@@ -1,8 +1,8 @@
 {
   "name": "react-native-chart-tnbt",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "private": false,
-  "type": "module",
+  "type": "commonjs",
   "peerDependencies": {
     "react-native-reanimated": "^3.5.4",
     "react-native-safe-area-context": "^4.7.2",

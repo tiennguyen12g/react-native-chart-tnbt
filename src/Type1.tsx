@@ -1,4 +1,4 @@
-import React, { useState} from 'react';
+import React, {useState} from 'react';
 import {
   View,
   StyleSheet,
@@ -7,11 +7,7 @@ import {
   Image as RNImage,
 } from 'react-native';
 import Animated, {useSharedValue} from 'react-native-reanimated';
-import Svg, {
-  Path,
-  Text as SvgText,
-  Image as SVGImage,
-} from 'react-native-svg';
+import Svg, {Path, Text as SvgText, Image as SVGImage} from 'react-native-svg';
 import RenderSlice from './RenderSlice';
 import FixData from './FixData';
 import HandleProgressTime from './HandleProgressTime';
@@ -89,22 +85,28 @@ export default function Type1({
   });
   const [currentHighlight, setCurrentHighlight] = useState<string>('');
   return (
+
+    //This view contain piechart and annotation
     <View style={[styles.container, {height: 'auto'}]}>
+
+      {/* This view contain chart and some detail about value */}
       <View
         style={{
-          flex: 1,
           justifyContent: 'center',
           alignItems: 'center',
-          top: -logoSize / 2,
+          marginTop: logoSize/2,
+          borderColor:"green"
         }}>
+
+          {/* this view show logo and its value */}
         <View
           style={{
-            position: 'relative',
             zIndex: 1,
             flexDirection: 'row',
-            top: size / 2 + 80,
-            left: 0,
-            height: logoSize,
+            borderColor:"green",
+            backgroundColor: "transparent",
+            position:"absolute",
+            top: 0.65 * size
           }}>
           {newData.map((item, i) => {
             if (lodoData !== undefined && Object.keys(lodoData).length > 0) {
@@ -117,7 +119,7 @@ export default function Type1({
                         source={url}
                         style={{width: logoSize, height: logoSize}}
                       />
-                      <RNText style={{marginLeft: 10, fontSize: logoSize - 10}}>
+                      <RNText style={{marginLeft: 0, fontSize: logoSize - 10, color: "red"}}>
                         {item.title}
                       </RNText>
                     </React.Fragment>
@@ -130,7 +132,7 @@ export default function Type1({
               return (
                 <React.Fragment key={i}>
                   {item.title === currentHighlight ? (
-                    <RNText style={{marginLeft: 10, fontSize: logoSize - 10}}>
+                    <RNText style={{marginLeft: 0, fontSize: logoSize - 10}}>
                       {item.title}
                     </RNText>
                   ) : (
@@ -142,45 +144,32 @@ export default function Type1({
           })}
         </View>
 
-        <Svg
-          width={size}
-          height={size}
-          fill=""
-          style={[
-            styles.svg,
-            {
-              marginVertical: strokeWidth,
-              marginHorizontal: strokeWidth,
-            },
-          ]}>
-          {newData.map((item, i) => {
-            const desiredLength = radius * 1.2; // Set the desired length
-            // How to calculate? Get ratio rectange (x1,y1) with rectangle(xNew,yNew), find the value of edge for new rectangle.
-            // xNew = cx + edge correspond; yNew = cy + edge correspond
-            const addX = cx + (desiredLength * (pathLists[i].x - cx)) / radius;
-            const addY = cy + (desiredLength * (pathLists[i].y - cy)) / radius;
-            return (
-              <React.Fragment key={i}>
-                <RenderSlice
-                  color={item.color}
-                  path={pathLists[i].path}
-                  circumference={circumference}
-                  angleRadian={item.sweepAngleRadians}
-                  title={item.title}
-                  progressTime={progressTimes[i]}
-                  percent={item.percent}
-                  centerX={cx}
-                  centerY={cy}
-                  animations={animations}
-                  opacity={1}
-                  strokeWidth={strokeWidth}
-                  triggerAnimated={true}
-                  setCurrentHighlight={setCurrentHighlight}
-                />
-                {decorPieCircular.newData[i].title === currentHighlight ? (
+        {/* This view are wrap all SVG */}
+        <View>
+          <Svg
+            width={size}
+            height={size}
+            fill=""
+            style={[
+              styles.svg,
+              {
+                marginVertical: strokeWidth,
+                marginHorizontal: strokeWidth,
+              },
+            ]}>
+            {newData.map((item, i) => {
+              const desiredLength = radius * 1.2; // Set the desired length
+              // How to calculate? Get ratio rectange (x1,y1) with rectangle(xNew,yNew), find the value of edge for new rectangle.
+              // xNew = cx + edge correspond; yNew = cy + edge correspond
+              const addX =
+                cx + (desiredLength * (pathLists[i].x - cx)) / radius;
+              const addY =
+                cy + (desiredLength * (pathLists[i].y - cy)) / radius;
+              return (
+                <React.Fragment key={i}>
                   <RenderSlice
                     color={item.color}
-                    path={decorPieCircular.pathLists[i].path}
+                    path={pathLists[i].path}
                     circumference={circumference}
                     angleRadian={item.sweepAngleRadians}
                     title={item.title}
@@ -189,82 +178,100 @@ export default function Type1({
                     centerX={cx}
                     centerY={cy}
                     animations={animations}
-                    opacity={decorPie?.opacityDecorCircular || 0.3}
-                    strokeWidth={strokeWidthDecorCircular}
-                    triggerAnimated={false}
+                    opacity={1}
+                    strokeWidth={strokeWidth}
+                    triggerAnimated={true}
+                    setCurrentHighlight={setCurrentHighlight}
                   />
-                ) : (
-                  ''
-                )}
-                {decorPie?.seperateSlice === true ? (
-                  <AnimatedPath
-                    key={i}
-                    stroke="white"
-                    fill="none"
-                    d={`M ${cx} ${cy} L ${addX} ${addY}`}
-                    strokeWidth={i === newData.length - 1 ? 2.5 : 5}
-                    // transform={`rotate(${(item.sweepAngleRadians * 180) / Math.PI} ${cx} ${cy})`}
-                  />
-                ) : (
-                  ''
-                )}
+                  {decorPieCircular.newData[i].title === currentHighlight ? (
+                    <RenderSlice
+                      color={item.color}
+                      path={decorPieCircular.pathLists[i].path}
+                      circumference={circumference}
+                      angleRadian={item.sweepAngleRadians}
+                      title={item.title}
+                      progressTime={progressTimes[i]}
+                      percent={item.percent}
+                      centerX={cx}
+                      centerY={cy}
+                      animations={animations}
+                      opacity={decorPie?.opacityDecorCircular || 0.3}
+                      strokeWidth={strokeWidthDecorCircular}
+                      triggerAnimated={false}
+                    />
+                  ) : (
+                    ''
+                  )}
+                  {decorPie?.seperateSlice === true ? (
+                    <AnimatedPath
+                      key={i}
+                      stroke="white"
+                      fill="none"
+                      d={`M ${cx} ${cy} L ${addX} ${addY}`}
+                      strokeWidth={i === newData.length - 1 ? 2.5 : 5}
+                      // transform={`rotate(${(item.sweepAngleRadians * 180) / Math.PI} ${cx} ${cy})`}
+                    />
+                  ) : (
+                    ''
+                  )}
+                </React.Fragment>
+              );
+            })}
+            {newData.map((item, j) => {
+              return (
+                <React.Fragment key={`text${j}`}>
+                  {item.title === currentHighlight ? (
+                    <View>
+                      <SvgText
+                        x={cx}
+                        y={cy - 10}
+                        textAnchor="middle"
+                        fontSize={30}
+                        fontWeight={800}
+                        fill={item.color}>
+                        {`$${item.value.toLocaleString('en-Us', {
+                          minimumFractionDigits: 0,
+                        })}`}
+                      </SvgText>
+                      <SvgText
+                        x={cx}
+                        y={cy + 20}
+                        textAnchor="middle"
+                        fontSize={25}
+                        opacity={0.6}>
+                        {`${item.percent}%`}
+                      </SvgText>
+                    </View>
+                  ) : (
+                    ''
+                  )}
+                </React.Fragment>
+              );
+            })}
+            {currentHighlight === '' ? (
+              <React.Fragment>
+                <SvgText
+                  x={cx}
+                  y={cy - 15}
+                  textAnchor="middle"
+                  fontSize={20}
+                  fontWeight={400}>
+                  Total Value:
+                </SvgText>
+                <SvgText
+                  x={cx}
+                  y={cy + 20}
+                  textAnchor="middle"
+                  fontSize={30}
+                  fontWeight={500}>
+                  {`$${totalValue.toLocaleString('en-US')}`}
+                </SvgText>
               </React.Fragment>
-            );
-          })}
-          {newData.map((item, j) => {
-            return (
-              <React.Fragment key={`text${j}`}>
-                {item.title === currentHighlight ? (
-                  <View>
-                    <SvgText
-                      x={cx}
-                      y={cy - 10}
-                      textAnchor="middle"
-                      fontSize={30}
-                      fontWeight={800}
-                      fill={item.color}>
-                      {`$${item.value.toLocaleString('en-Us', {
-                        minimumFractionDigits: 0,
-                      })}`}
-                    </SvgText>
-                    <SvgText
-                      x={cx}
-                      y={cy + 20}
-                      textAnchor="middle"
-                      fontSize={25}
-                      opacity={0.6}>
-                      {`${item.percent}%`}
-                    </SvgText>
-                  </View>
-                ) : (
-                  ''
-                )}
-              </React.Fragment>
-            );
-          })}
-          {currentHighlight === '' ? (
-            <React.Fragment>
-              <SvgText
-                x={cx}
-                y={cy - 15}
-                textAnchor="middle"
-                fontSize={20}
-                fontWeight={400}>
-                Total Value:
-              </SvgText>
-              <SvgText
-                x={cx}
-                y={cy + 20}
-                textAnchor="middle"
-                fontSize={30}
-                fontWeight={500}>
-                {`$${totalValue.toLocaleString('en-US')}`}
-              </SvgText>
-            </React.Fragment>
-          ) : (
-            ''
-          )}
-        </Svg>
+            ) : (
+              ''
+            )}
+          </Svg>
+        </View>
       </View>
 
       {decorPie.annotation === true ? (

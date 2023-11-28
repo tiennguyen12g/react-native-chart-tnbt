@@ -22,8 +22,7 @@ function App(): JSX.Element {
   const [typeNo, setTypeNo] = useState<number>(1);
   const size = 280
   return (
-    <SafeAreaView>
-      <StatusBar />
+    <SafeAreaView style={{borderWidth:1, backgroundColor:"green", top:10}}>
       <ScrollView contentInsetAdjustmentBehavior="automatic">
         {typeNo === 1 ? 
         <PieChart
@@ -35,7 +34,7 @@ function App(): JSX.Element {
             clockwiseDirection: 'clockwise', // counter_clockwise or clockwise
           }}
           decorPie={{
-            sizeDecorCircular: size - 100,
+            sizeDecorCircular: size,
             strokeWidthDecorCircular: 25,
             seperateSlice: true,
             opacityDecorCircular: 0.5,
